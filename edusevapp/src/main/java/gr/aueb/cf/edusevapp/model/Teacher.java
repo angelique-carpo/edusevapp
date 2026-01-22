@@ -1,13 +1,22 @@
 package gr.aueb.cf.edusevapp.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
-public class Teacher {
+import java.util.UUID;
 
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@Table(name = "teachers")
+public class Teacher extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(unique = true)
     private String uuid;
@@ -15,10 +24,16 @@ public class Teacher {
     @ColumnDefault("true")
     private Boolean isActive;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "personal_info_id")
+    private PersonalInfo personalInfo;
+
     @PrePersist
-    public void initializeUUID(){
-        if (uuid == null){
-            uuid = java.util.UUID.randomUUID().toString();
-        }
+    public void initializeUUID() {
+        if (uuid == null) uuid = UUID.randomUUID().toString();
     }
 }
