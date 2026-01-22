@@ -1,7 +1,7 @@
 package gr.aueb.cf.edusevapp.model;
 
-import gr.aueb.cf.eduapp.core.enums.Role;
-import gr.aueb.cf.eduapp.core.enums.GenderType;
+import gr.aueb.cf.edusevapp.core.enums.Role;
+import gr.aueb.cf.edusevapp.core.enums.GenderType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
