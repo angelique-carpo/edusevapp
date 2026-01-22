@@ -1,6 +1,6 @@
 package gr.aueb.cf.edusevapp.repository;
 
-import gr.aueb.cf.eduapp.model.Teacher;
+import gr.aueb.cf.edusevapp.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
